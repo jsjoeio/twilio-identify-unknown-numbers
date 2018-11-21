@@ -13,7 +13,7 @@ auth_token = "auth token"
 client = Client(account_sid, auth_token)
 
 message = client.messages.create(
-    "+16307889299",
+    "PHONE_NUMBER",
     body="TESTING TESTING",
-    from_="+16305184064"
+    from_="TWILIO_NUMBER"
 )
