@@ -36,7 +36,38 @@ Inisde of your .env file, fill out all the variables so you're able to use the T
 
 ## Deployment
 
-* TODO *
+In order to deploy and use with AWS Lambda Functions, you need to create an AWS Lambda Deployment Package in Python. You can do it by following this process:
+
+1. From the root directory, run
+
+```python
+# Create a directory called 'v-env'
+python3 -m venv v-env
+```
+
+2. While you're still at the root directory, run to activate the environment
+
+```python
+source v-env/bin/activate
+```
+
+3. Install the libraries necessary for this project. In this case, we only need Twilio's helper library.
+
+```python
+pip install twilio
+```
+
+4. Deactive the environment
+
+```python
+deactivate
+```
+
+5. Move your `lambda_function.py` file into the `v-env/lib/python3.6/site-packages` directory.
+
+6. Zip the `/site-packages` directory
+
+7. Upload that zipped directory to your AWS Lambda function via the AWS Lambda console.
 
 
 ## Authors
