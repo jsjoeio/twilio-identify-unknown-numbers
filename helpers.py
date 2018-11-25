@@ -19,7 +19,7 @@ def lookup_number(number_to_lookup):
     return False
 
 
-def send_message(message):
+def send_message(message, to_number):
   """
   This function accepts as message (String), and then runs the function to send a text
   using Twilio's SMS API.
@@ -28,7 +28,7 @@ def send_message(message):
     .create(
           body=message,
           from_=os.getenv("TWILIO_NUMBER"),
-          to=os.getenv("PHONE_NUMBER")
+          to=to_number
                   )
 
 def parse_number(message):

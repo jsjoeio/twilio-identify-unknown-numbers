@@ -3,7 +3,7 @@ from helpers import *
 
 def lambda_handler(event, context):
     # Obtain the number from the incoming text
-    number = parse_number(event['body'])
+    number = parse_number(event['Body'])
     message = ''
 
     # Check for number
@@ -16,7 +16,7 @@ def lambda_handler(event, context):
         message = 'Aw. Sorry to let you down but we can\'t associate a name with that number.'
     else:
       message = 'Oops! The number you sent doesn\'t appear to be correct. Please make sure it has ten digits. Can you try sending the number again?'
-    send_message(message)
+    send_message(message, event['From'])
 
     print("Received event: " + str(event))
     return '<?xml version=\"1.0\" encoding=\"UTF-8\"?>'\
