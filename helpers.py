@@ -21,15 +21,14 @@ def lookup_number(number_to_lookup):
 
 def send_message(message, to_number):
   """
-  This function accepts as message (String), and then runs the function to send a text
+  This function accepts as message (String) and a to_number and then runs the function to send a text
   using Twilio's SMS API.
   """
-  message = client.messages \
-    .create(
-          body=message,
-          from_=os.getenv("TWILIO_NUMBER"),
-          to=to_number
-                  )
+  client.messages.create(
+    to=to_number,
+    from_=os.getenv("TWILIO_NUMBER"),
+    body=message
+  )
 
 def parse_number(message):
   """
@@ -39,6 +38,8 @@ def parse_number(message):
   import re
   # Check for at least two numbers
   if bool(re.search(r'\d{2}', message)):
+    # Replace %2B with +
+    message.replace('%2B', '+')
     # Clean up number
     cleanedUpNumber = re.sub(r'([-() ])', "", message)
     # Check if it's less than 10 digits
