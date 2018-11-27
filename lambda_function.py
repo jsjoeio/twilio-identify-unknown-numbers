@@ -16,7 +16,10 @@ def lambda_handler(event, context):
         message = 'Aw. Sorry to let you down but we can\'t associate a name with that number.'
     else:
       message = 'Oops! The number you sent doesn\'t appear to be correct. Please make sure it has ten digits. Can you try sending the number again?'
-    send_message(message, event['From'])
+
+    to_number = event['From']
+    # Since the to_number is not formatted corrected, we add a + and slice off the first three chars
+    send_message(message, '+' + to_number[3:])
 
     print("Received event: " + str(event))
     return '<?xml version=\"1.0\" encoding=\"UTF-8\"?>'\
