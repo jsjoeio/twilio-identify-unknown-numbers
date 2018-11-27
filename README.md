@@ -65,9 +65,16 @@ deactivate
 
 5. Move your `lambda_function.py` file into the `v-env/lib/python3.6/site-packages` directory.
 
-6. Zip the `/site-packages` directory
+6. Zip the contents of `/site-packages` directory. *NOTE* You _must_ zip the contents, and not the directory itself. I recommend doing this via the command line.
 
-7. Upload that zipped directory to your AWS Lambda function via the AWS Lambda console.
+```bash
+# From the root
+cd v-env/lib/python3.6/site-packages
+# This will zip the contents into a file called function.zip that will be in the parent directory
+zip -r9 ../function.zip .
+```
+
+7. Upload that zipped directory `function.zip` to your AWS Lambda function via the AWS Lambda console.
 
 
 ## Authors
