@@ -38,10 +38,10 @@ def parse_number(message):
   import re
   # Check for at least two numbers
   if bool(re.search(r'\d{2}', message)):
-    # Replace %2B with +
-    message.replace('%2B', '+')
+    # Replace %2B with + and assign to variable because strings are immutable in Python
+    number = message.replace('%2B', '+', 1)
     # Clean up number
-    cleanedUpNumber = re.sub(r'([-() ])', "", message)
+    cleanedUpNumber = re.sub(r'([-() ])', "", number)
     # Check if it's less than 10 digits
     if len(cleanedUpNumber) < 10:
       return False
