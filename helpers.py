@@ -15,6 +15,7 @@ def parse_number(message):
   If it finds a phone number, it parses it then returns the phone number.
   """
   # Check for at least two numbers
+  countryCode = '+1'
   if bool(re.search(r'\d{2}', message)):
     # Replace %2B with + and assign to variable because strings are immutable in Python
     number = message.replace('%2B', '+', 1)
@@ -24,7 +25,7 @@ def parse_number(message):
     if len(cleanedUpNumber) < 10:
       return False
     elif len(cleanedUpNumber) == 10:
-      return '+1' + cleanedUpNumber
+      return countryCode + cleanedUpNumber
     elif len(cleanedUpNumber) > 10:
       # Check for countryCode
       countryCode = '+1'
