@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from twilio.rest import Client
 load_dotenv()
 import os
+import re
 
 # Your Account Sid and Auth Token from twilio.com/console
 account_sid = os.getenv("ACCOUNT_SID")
@@ -13,7 +14,6 @@ def parse_number(message):
   This function accepts a message (String), which has a phone number inside.
   If it finds a phone number, it parses it then returns the phone number.
   """
-  import re
   # Check for at least two numbers
   if bool(re.search(r'\d{2}', message)):
     # Replace %2B with + and assign to variable because strings are immutable in Python
