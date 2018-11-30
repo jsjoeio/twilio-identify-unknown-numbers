@@ -57,6 +57,14 @@ source v-env/bin/activate
 pip install twilio
 ```
 
+As a side note here, I (Ryan) had a little bit of difficulty installing the dotenv module on a Windows machine.
+I found that this line of code did the trick.
+
+```
+$ pip3 install python-dotenv --target .
+#Don't forget the period after target
+```
+
 4. Deactive the environment
 
 ```python
