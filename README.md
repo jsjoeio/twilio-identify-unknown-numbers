@@ -51,15 +51,11 @@ python3 -m venv v-env
 source v-env/bin/activate
 ```
 
-3. Install the libraries necessary for this project. In this case, we only need Twilio's helper library.
+3. Install the libraries necessary for this project. In this case, we need Twilio's helper library, and the Dotenv library. There was a bit of difficulty installing the Dotenv module on a Windows machine. If you experience any issues, try the second line of code.
 
 ```python
 pip install twilio
 ```
-
-As a side note here, I (Ryan) had a little bit of difficulty installing the dotenv module on a Windows machine.
-I found that this line of code did the trick.
-
 ```
 $ pip3 install python-dotenv --target .
 #Don't forget the period after target
