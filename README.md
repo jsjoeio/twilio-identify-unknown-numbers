@@ -62,7 +62,7 @@ If you're developing on Windows and running into issues with the dotenv, try the
 pip3 install python-dotenv --target .
 ```
 
-4. Deactive the environment
+4. Deactivate the environment
 
 ```bash
 deactivate
