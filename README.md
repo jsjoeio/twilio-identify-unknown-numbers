@@ -20,13 +20,13 @@ A step by step series of examples that tell you have to get a development env ru
 
 1. Clone the project locally
 
-```
+```bash
 git clone https://github.com/jsjoeio/twilio-identify-unknown-numbers.git
 ```
 
 2. Make a copy of `example.env` and call it `.env`. This is where you'll store your environment variables (auth token, phone number, etc).
 
-```
+```bash
 cp example.env .env
 ```
 
@@ -51,19 +51,20 @@ python3 -m venv v-env
 source v-env/bin/activate
 ```
 
-3. Install the libraries necessary for this project. In this case, we need Twilio's helper library, and the Dotenv library. There was a bit of difficulty installing the Dotenv module on a Windows machine. If you experience any issues, try the second line of code.
+3. Install the libraries necessary for this project. In this case, we need Twilio's helper library, and the python-dotenv library. 
 
-```python
-pip install twilio
+```bash
+pip install twilio python-dotenv
 ```
-```
-$ pip3 install python-dotenv --target .
-#Don't forget the period after target
+If you're developing on Windows and running into issues with the dotenv, try the following:
+```bash
+# Don't forget the period after target
+pip3 install python-dotenv --target .
 ```
 
 4. Deactive the environment
 
-```python
+```bash
 deactivate
 ```
 
